@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.postgres.fields import JSONField
 from djongo import models as mod
 
 
@@ -8,7 +8,7 @@ class Storekeepers(models.Model):
     lat = models.DecimalField(max_digits=15, decimal_places=12, blank=True, null=True)
     lng = models.DecimalField(max_digits=15, decimal_places=12, blank=True, null=True)
     timestamp = models.DateTimeField(blank=True, null=True)
-    toolkit = models.TextField(blank=True, null=True)  # This field type is a guess.
+    toolkit = JSONField(blank=True, null=True)  # This field type is a guess.
 
     class Meta:
         managed = False
@@ -20,7 +20,7 @@ class Orders(models.Model):
     timestamp = models.TextField(blank=True, null=True)
     created_at = models.TextField(blank=True, null=True)
     type = models.TextField(blank=True, null=True)
-    toolkit = models.TextField(blank=True, null=True)
+    toolkit = JSONField(blank=True, null=True)
 
     class Meta:
         managed = False
