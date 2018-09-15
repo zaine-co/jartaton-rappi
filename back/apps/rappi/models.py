@@ -17,4 +17,4 @@ class Orders(models.Model):
         managed = False
         db_table = 'orders'
 
-#print(Orders.objects.using('jartatonM').all()[0])
+#print(Orders.objects.using('jartatonM').all())
