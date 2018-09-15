@@ -11,3 +11,10 @@ class Storekeepers(models.Model):
     class Meta:
         managed = False
         db_table = 'storekeepers'
+
+class Orders(models.Model):
+    class Meta:
+        managed = False
+        db_table = 'orders'
+
+#print(Orders.objects.using('jartatonM').all()[0])
