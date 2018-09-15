@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'graphene_django',
     'corsheaders',
+    'apps.rappi',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,14 @@ WSGI_APPLICATION = 'jartaton.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'graphql_db',
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    },
+    'jartatonP': {
         'NAME': 'storekeepersdb',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'USER': 'hackathonpostgres',
@@ -87,11 +96,14 @@ DATABASES = {
         'PORT': '5432',
     },
     'jartatonM': {
+        'NAME': 'orders',
+        'ENFORCE_SCHEMA': False,
         'ENGINE': 'djongo',
         'USER': 'hackathonmongo',
         'PASSWORD': 'hackathon2018rappimongodb',
         'HOST': 'mongo-hackathon.eastus2.cloudapp.azure.com',
-        'PORT': '27017',
+        'PORT': 27017,
+        'AUTH_SOURCE': 'orders',
     }
 }
 
