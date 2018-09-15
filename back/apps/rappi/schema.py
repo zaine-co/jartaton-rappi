@@ -23,4 +23,4 @@ class Query(graphene.ObjectType):
     
     def resolver_storekeeper(self, info, id=None, **kwargs):
         if id:
-            return torekeepers.objects.using('jartatonP').get(pk=id)
+            return Storekeepers.objects.using('jartatonP').get(pk=id)
