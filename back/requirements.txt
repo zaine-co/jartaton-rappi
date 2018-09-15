@@ -37,7 +37,6 @@ Rx==1.6.1
 singledispatch==3.4.0.3
 six==1.11.0
 sqlparse==0.2.4
-Twisted==18.7.0
 txaio==18.8.1
 typing==3.6.6
 zope.interface==4.5.0
