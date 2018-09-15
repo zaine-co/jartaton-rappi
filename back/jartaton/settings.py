@@ -149,9 +149,9 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# GRAPHENE = {
-#     'SCHEMA': 'back.schema.schema',
-# }
+GRAPHENE = {
+    'SCHEMA': 'jartaton.schema.schema',
+}
 
 AUTHENTICATION_BACKENDS = [
     'graphql_jwt.backends.JSONWebTokenBackend',

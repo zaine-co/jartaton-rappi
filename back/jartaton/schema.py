@@ -1,7 +1,8 @@
 import graphene
 import graphql_jwt
+import apps.rappi.schema
 
-class Query(graphene.ObjectType):
+class Query(apps.rappi.schema.Query, graphene.ObjectType):
     pass
 
 class Mutation(graphene.ObjectType):
