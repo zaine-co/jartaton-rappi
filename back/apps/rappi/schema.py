@@ -29,3 +29,5 @@ class Query(graphene.ObjectType):
     def resolve_order(self, info, id=None, **kwargs):
         if id:
             return Orders.objects.using('jartatonM').get(pk=id)
+
+#print(Storekeepers.objects.using('jartatonP').filter(toolkit__vehicle=2))
