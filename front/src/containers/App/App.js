@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Button } from 'reactstrap';
+import Header from '../../components/Ui/Header/Header';
+import AppBody from '../../components/Ui/AppBody/AppBody';
+import Jartaton from '../../components/Jartaton/Jartaton';
 
 class App extends Component {
   render() {
     return (
-      <Button color="danger">Danger!</Button>
+      <div className="App">
+        <Header />
+        <Jartaton />
+      </div>
     );
   }
 }
