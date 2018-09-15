@@ -15,6 +15,7 @@ class Query(graphene.ObjectType):
     orders = graphene.List(OrdersType)
     storekeeper = graphene.Field(StorekeepersType, id=graphene.Int())
     order = graphene.Field(OrdersType, id=graphene.Int())
+    storekeepers_vehicle = graphene.List(StorekeepersType, vehicle=graphene.Int())
 
     def resolve_storekeepers(self, info, **kwargs):
         return Storekeepers.objects.using('jartatonP').all()
@@ -29,5 +30,9 @@ class Query(graphene.ObjectType):
     def resolve_order(self, info, id=None, **kwargs):
         if id:
             return Orders.objects.using('jartatonM').get(pk=id)
+    
+    def resolve_storekeepers_vehicle(self, info, vehicle=None, **kwargs):
+        if vehicle:
+            return Storekeepers.objects.using('jartatonP').filter(toolkit__vehicle=vehicle)
 
 #print(Storekeepers.objects.using('jartatonP').filter(toolkit__vehicle=2))
