@@ -14,6 +14,7 @@ class Query(graphene.ObjectType):
     storekeepers = graphene.List(StorekeepersType)
     orders = graphene.List(OrdersType)
     storekeeper = graphene.Field(StorekeepersType, id=graphene.Int())
+    order = graphene.Field(OrdersType, id=graphene.Int())
 
     def resolve_storekeepers(self, info, **kwargs):
         return Storekeepers.objects.using('jartatonP').all()
@@ -21,6 +22,10 @@ class Query(graphene.ObjectType):
     def resolve_orders(self, info, **kwargs):
         return Orders.objects.using('jartatonM').all()
     
-    def resolver_storekeeper(self, info, id=None, **kwargs):
+    def resolve_storekeeper(self, info, id=None, **kwargs):
         if id:
             return Storekeepers.objects.using('jartatonP').get(pk=id)
+    
+    def resolve_order(self, info, id=None, **kwargs):
+        if id:
+            return Orders.objects.using('jartatonM').get(pk=id)
